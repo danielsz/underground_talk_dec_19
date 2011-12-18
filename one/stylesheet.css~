@@ -1,0 +1,8 @@
+.content {
+  color: black;
+  font-family:  galdeano, sans-serif, helvetica, arial; 
+  font-size:large;
+}
+h1, h2 {
+  color: rgb(79, 180, 226);
+  font-family: Geo
