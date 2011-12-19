@@ -1,0 +1,13 @@
+.content {
+  color: black;
+  font-family:  'Galdeano', sans-serif, helvetica, arial; 
+  font-size:large;
+}
+h1, h2 {
+  color: rgb(79, 180, 226);
+  font-family: 'Squada One', Georgia;
+}
+code {
+  font-family: 'Ubuntu Mono', sans-serif;  
+  font-size: 0.7em;
+}
