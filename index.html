@@ -93,17 +93,16 @@
 
 </center>
 </div>
-</div><div class="slide" data-transition="none"><div class="content" ref="one/01_slide/4">
+</div><div class="slide" data-transition="none"><div class="content bullets incremental" ref="one/01_slide/4">
 <ul>
 <li>Programs that write programs</li>
-<li>Program that knows how to deal with its own languages constructs at runtime</li>
+<li>Program that knows how to deal with its own language constructs at runtime</li>
 </ul>
 </div>
 </div><div class="slide" data-transition="none"><div class="content bullets incremental" ref="one/01_slide/5">
 <ul>
 <li>Whatsinitforme?</li>
-<li>I code for a living. I have kids, you know.</li>
-<li>Do I really need to know these things?</li>
+<li>I code for a living. Do I really need to learn these things? I have kids, you know.</li>
 <li>Frameworks, libraries, DSLs, etc.</li>
 </ul>
 </div>
@@ -113,7 +112,12 @@
 <p>Equivalent to:</p>
 
 <pre class="sh_ruby"><code>a.b()</code></pre></div>
-</div><div class="slide" data-transition="none"><div class="content" ref="one/01_slide/8">
+</div><div class="slide" data-transition="none"><div class="content commandline" ref="one/01_slide/8">
+<pre><code><code class="command"># Link to github page: https://github.com/danielsz/Metaprogramming</code>
+<code class="command">$ git clone git@github.com:danielsz/Metaprogramming.git</code>
+<code class="command">$ git clone https://github.com/danielsz/Metaprogramming.git</code>
+</code></pre></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="one/01_slide/9">
 <p>Exercice 1: Make it compile</p>
 
 <pre class="sh_ruby"><code>  class Person  
@@ -129,94 +133,38 @@
   p person.name
   person.name = "Mike"
   p person.name</code></pre></div>
-</div><div class="slide" data-transition="none"><div class="content execute" ref="one/01_slide/9">
+</div><div class="slide" data-transition="none"><div class="content execute" ref="one/01_slide/10">
 <pre class="sh_ruby"><code>class Person
    attr_accessor :name
 end
 person = Person.new
 person.name = "Mike"
 p person.name</code></pre></div>
-</div><div class="slide" data-transition="none"><div class="content execute" ref="one/01_slide/10">
-<pre class="sh_ruby"><code>   Class.method(:attr_accessor).owner</code></pre></div>
 </div><div class="slide" data-transition="none"><div class="content execute" ref="one/01_slide/11">
-<pre class="sh_ruby"><code>   Class.ancestors</code></pre></div>
+<pre class="sh_ruby"><code>   Class.method(:attr_accessor).owner</code></pre></div>
 </div><div class="slide" data-transition="none"><div class="content execute" ref="one/01_slide/12">
+<pre class="sh_ruby"><code>   Class.ancestors</code></pre></div>
+</div><div class="slide" data-transition="none"><div class="content execute" ref="one/01_slide/13">
 <p>Classes are objects</p>
 
 <pre class="sh_ruby"><code>a=Class.new 
 a.name</code></pre></div>
-</div><div class="slide" data-transition="none"><div class="content execute" ref="one/01_slide/13">
+</div><div class="slide" data-transition="none"><div class="content execute" ref="one/01_slide/14">
 <pre class="sh_ruby"><code>a=Class.new
 Person=a
 a.name</code></pre>
 
 <p>The new class begins as an anonymous Class instance, but becomes a named class when it's assigned to a constant.</p></div>
-</div><div class="slide" data-transition="none"><div class="content execute" ref="one/01_slide/14">
+</div><div class="slide" data-transition="none"><div class="content" ref="one/01_slide/15">
+<p>Equivalent to:</p>
+
+<pre class="sh_ruby"><code>class Person
+end</code></pre></div>
+</div><div class="slide" data-transition="none"><div class="content execute" ref="one/01_slide/16">
 <pre class="sh_ruby"><code>   class Person
      p "hi"
    end</code></pre></div>
-</div><div class="slide" data-transition="none"><div class="content execute" ref="one/01_slide/15">
-<pre class="sh_ruby"><code>   class Person
-     p self      
-   end 
-   p self</code></pre></div>
-</div><div class="slide" data-transition="none"><div class="content" ref="one/01_slide/16">
-<pre class="sh_ruby"><code>   class Person
-     def self.speak
-       #I'm a class method, or rather a singleton method on the Class instance that represents Person
-     end   
-     def speak
-       #I'm an instance method
-     end
-   end</code></pre></div>
 </div><div class="slide" data-transition="none"><div class="content execute" ref="one/01_slide/17">
-<pre class="sh_ruby"><code>module Features
-  def talk
-    "hi"
-  end  
-end
-class Person; end
-Person.extend Features
-Person.talk</code></pre></div>
-</div><div class="slide" data-transition="none"><div class="content" ref="one/01_slide/18">
-<pre class="sh_ruby"><code>module Features
-   def my_attr()
-  end
-end
-
-class Person
-   extend Features
-   my_attr :name
-end</code></pre></div>
-</div><div class="slide" data-transition="none"><div class="content execute" ref="one/01_slide/19">
-<pre class="sh_ruby"><code>   class SomeClass
-     define_method :some_method do Math::PI end
-   end
-   SomeClass.new.some_method</code></pre></div>
-</div><div class="slide" data-transition="none"><div class="content bullets incremental" ref="one/01_slide/20">
-<ul>
-<li>Query instance variables and methods of a particular class</li>
-<li>Define an instance variable or instance method.</li>
-</ul>
-</div>
-</div><div class="slide" data-transition="none"><div class="content" ref="one/01_slide/21">
-<p>Object model in ruby (copied from Smalltalk)
-Dynamic dispatch, messages are sent to a receiver, resolution at runtime</p></div>
-</div><div class="slide" data-transition="none"><div class="content execute" ref="one/01_slide/22">
-<p>Object model</p>
-
-<p>Everything is an object.</p>
-
-<pre class="sh_ruby"><code>["hello", 3, Class, method(:p)].map {|x| x.class}</code></pre></div>
-</div><div class="slide" data-transition="none"><div class="content" ref="one/01_slide/23">
-<p>State and behavior</p>
-
-<p>An object has instance variables and an associated class
-The class is a table of methods</p>
-
-<p>Instance variables are private
-Classes are open (live)</p></div>
-</div><div class="slide" data-transition="none"><div class="content execute" ref="one/01_slide/24">
 <pre class="sh_ruby"><code>   class Person
          def say_something;  "hi";  end
    end
@@ -227,8 +175,93 @@ Classes are open (live)</p></div>
          def say_something;  "bye";  end
    end
 
-   person.say_something</code></pre></div>
-</div><div class="slide" data-transition="none"><div class="content execute" ref="one/01_slide/25">
+   person.say_something</code></pre>
+
+<p>In Ruby, the term monkey patch is often used as a synonym for dynamically modifying any class at runtime.</p></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="one/01_slide/18">
+<pre class="sh_ruby"><code>a.b</code></pre></div>
+</div><div class="slide" data-transition="none"><div class="content execute" ref="one/01_slide/19">
+<pre class="sh_ruby"><code>class Person
+   attr_accessor :name
+end</code></pre></div>
+</div><div class="slide" data-transition="none"><div class="content execute" ref="one/01_slide/20">
+<pre class="sh_ruby"><code>   class Person
+     p self      
+   end 
+   p self</code></pre></div>
+</div><div class="slide" data-transition="none"><div class="content execute" ref="one/01_slide/21">
+<pre class="sh_ruby"><code>   class Person
+     def self.speak
+       #I'm a class method, 
+   #or rather a singleton method 
+   #on the Class instance that represents Person
+     end   
+     def speak
+       #I'm an instance method
+     end
+   end
+   [Person.singleton_methods, Person.instance_methods]</code></pre></div>
+</div><div class="slide" data-transition="none"><div class="content execute" ref="one/01_slide/22">
+<pre class="sh_ruby"><code>module Features
+  def talk
+    "hi"
+  end  
+end
+class Person; end
+Person.extend Features
+Person.talk</code></pre></div>
+</div><div class="slide" data-transition="none"><div class="content execute" ref="one/01_slide/23">
+<pre class="sh_ruby"><code>   class SomeClass
+     define_method :some_method do Math::PI end
+   end
+   SomeClass.new.some_method</code></pre></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="one/01_slide/24">
+<p>Exercise 2: Make it compile!</p>
+
+<pre class="sh_ruby"><code>module Features
+   def my_attr()
+  end
+end
+
+class Person
+   extend Features
+   my_attr :name
+end</code></pre></div>
+</div><div class="slide" data-transition="none"><div class="content bullets" ref="one/01_slide/25">
+<ul>
+<li>Metaprogramming is just programming.</li>
+<li>The key to understand programming in Ruby is to understand its object model.</li>
+<li>The key to undestand the object model in Ruby is to study... Smalltalk.</li>
+</ul>
+</div>
+</div><div class="slide" data-transition="none"><div class="content smbullets" ref="one/01_slide/26">
+<p>The design of the Smalltalk object model is based on a set of simple rules that are applied uniformly.
+The rules are the following ones:</p>
+
+<ul>
+<li>Rule 1. Everything is an object that has some private data.</li>
+<li>Rule 2. Every object is an instance of a class.</li>
+<li>Rule 3. A class de&#xFB01;nes the behavior via public methods and the structure of its instances via instance variables which are private to the instances.</li>
+<li>Rule 4. Each class is inheriting its behavior and structure description from a single superclass.</li>
+<li>Rule 5. Objects only communicate via message passing (i.e., method invocation). When an object receives a message, the corresponding method is looked up in the class of the receiver, then if not found on this class continues in the class&#x2019;s superclasses.</li>
+<li>Rule 6. The class Object is the root of the inheritance tree (in Squeak this is ProtoObject the class that represents objects understanding the smallest set of messages).</li>
+<li>Rule 7. Classes are instances too. They are instances of other classes called metaclasses.</li>
+</ul>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="one/01_slide/27">
+<p>Dynamic dispatch: messages are sent to a receiver, resolution at runtime</p></div>
+</div><div class="slide" data-transition="none"><div class="content execute" ref="one/01_slide/28">
+<p>Everything is an object.</p>
+
+<pre class="sh_ruby"><code>["hello", 3, Class, method(:p)].map {|x| x.class}</code></pre></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="one/01_slide/29">
+<p>State and behavior</p>
+
+<p>An object has instance variables (state) and an associated class (behavior)
+The class is a table of methods
+Instance variables are private
+Classes are open.</p></div>
+</div><div class="slide" data-transition="none"><div class="content execute" ref="one/01_slide/30">
 <p>Write a method that writes a method.</p>
 
 <pre class="sh_ruby"><code>    class Person
@@ -240,7 +273,7 @@ Classes are open (live)</p></div>
 
 person = Person.new
 person.two      </code></pre></div>
-</div><div class="slide" data-transition="none"><div class="content execute" ref="one/01_slide/26">
+</div><div class="slide" data-transition="none"><div class="content execute" ref="one/01_slide/31">
 <p>define_method</p>
 
 <pre class="sh_ruby"><code>class Person
@@ -251,23 +284,6 @@ person.two      </code></pre></div>
 
  person = Person.new
  person.two</code></pre></div>
-</div><div class="slide" data-transition="none"><div class="content" ref="one/01_slide/27">
-<p>The design of the Smalltalk object model is based on a set of simple rules that are applied uniformly.
-The rules are the following ones:</p>
-
-<p> Rule 1. Everything is an object that has some private data.</p>
-
-<p> Rule 2. Every object is instance of a class.</p>
-
-<p> Rule 3. A class de&#xFB01;nes the behavior via public methods and the structure of its instances via instance variables which are private to the instances.</p>
-
-<p> Rule 4. Each class is inheriting its behavior and structure description from a single superclass.</p>
-
-<p> Rule 5. Objects only communicate via message passing (i.e., method invocation). When an object receives a message, the corresponding method is looked up in the class of the receiver, then if not found on this class continues in the class&#x2019;s superclasses.</p>
-
-<p> Rule 6. The class Object is the root of the inheritance tree (in Squeak this is ProtoObject the class that represents objects understanding the smallest set of messages).</p>
-
-<p> Rule 7. Classes are instances too. They are instances of other classes called metaclasses.</p></div>
 </div></div>
 
 </body>
