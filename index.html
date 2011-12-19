@@ -249,19 +249,25 @@ The rules are the following ones:</p>
 </ul>
 </div>
 </div><div class="slide" data-transition="none"><div class="content" ref="one/01_slide/27">
+<p>Thank you!</p>
+
+<p>The slides you just saw are here:</p>
+
+<p>http://danielsz.github.com/underground_talk_dec_19</p></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="one/01_slide/28">
 <p>Dynamic dispatch: messages are sent to a receiver, resolution at runtime</p></div>
-</div><div class="slide" data-transition="none"><div class="content execute" ref="one/01_slide/28">
+</div><div class="slide" data-transition="none"><div class="content execute" ref="one/01_slide/29">
 <p>Everything is an object.</p>
 
 <pre class="sh_ruby"><code>["hello", 3, Class, method(:p)].map {|x| x.class}</code></pre></div>
-</div><div class="slide" data-transition="none"><div class="content" ref="one/01_slide/29">
+</div><div class="slide" data-transition="none"><div class="content" ref="one/01_slide/30">
 <p>State and behavior</p>
 
 <p>An object has instance variables (state) and an associated class (behavior)
 The class is a table of methods
 Instance variables are private
 Classes are open.</p></div>
-</div><div class="slide" data-transition="none"><div class="content execute" ref="one/01_slide/30">
+</div><div class="slide" data-transition="none"><div class="content execute" ref="one/01_slide/31">
 <p>Write a method that writes a method.</p>
 
 <pre class="sh_ruby"><code>    class Person
@@ -273,7 +279,7 @@ Classes are open.</p></div>
 
 person = Person.new
 person.two      </code></pre></div>
-</div><div class="slide" data-transition="none"><div class="content execute" ref="one/01_slide/31">
+</div><div class="slide" data-transition="none"><div class="content execute" ref="one/01_slide/32">
 <p>define_method</p>
 
 <pre class="sh_ruby"><code>class Person
